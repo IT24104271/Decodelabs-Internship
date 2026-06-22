@@ -30,6 +30,46 @@ You can test the API using:
 
 - Postman
 
+## 📸 API Testing Screenshots
+
+### Get All Interns - GET /interns
+
+![Get All Interns]()
+
+Fetches all intern records available in the system.
+
+---
+
+### Get Intern By ID - GET /interns/:id
+
+![Get Intern By ID]()
+
+Retrieves a specific intern using their unique ID.
+
+---
+
+### Add New Intern - POST /interns
+
+![Add Intern]()
+
+Creates a new intern record and returns the created data.
+
+---
+
+### Update Intern - PUT /interns/:id
+
+![Update Intern]()
+
+Updates the selected intern's information.
+
+---
+
+### Delete Intern - DELETE /interns/:id
+
+![Delete Intern]()
+
+Removes an intern record from the system.
+
 ## 👨‍💻 Author
 Nikshika Niththiyananthan
 * Full-Stack Intern at @Decodelabs
