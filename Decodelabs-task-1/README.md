@@ -39,9 +39,3 @@ The project demonstrates front-end web development concepts including responsive
 * Font Awesome Icons
 
 ---
-
-## 🌐 Live Demo
-
-🔗  https://github.com/IT24104271/Decodelabs-Internship/tree/main/Decodelabs-task-1
-
----
