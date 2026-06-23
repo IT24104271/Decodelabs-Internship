@@ -1,46 +1,52 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./db");
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
 
+// Sample Data
+let subscribers = [
+{
+id: 1,
+email: "[test@gmail.com](mailto:test@gmail.com)"
+}
+];
+
+/* =========================
+HOME ROUTE
+========================= */
 app.get("/", (req, res) => {
-res.send("RV Creations Backend Running 🚀");
+res.send("Subscriber API Running 🚀");
 });
 
 /* =========================
 GET ALL SUBSCRIBERS
 ========================= */
-app.get("/api/subscribers", async (req, res) => {
-try {
-const result = await db.query("SELECT * FROM Subscribers");
-res.json(result.recordset);
-} catch (err) {
-res.status(500).json({ error: err.message });
-}
+app.get("/subscribers", (req, res) => {
+res.json(subscribers);
 });
 
 /* =========================
 GET SUBSCRIBER BY ID
 ========================= */
-app.get("/api/subscribers/:id", async (req, res) => {
-try {
-const id = req.params.id;
+app.get("/subscribers/:id", (req, res) => {
+const id = parseInt(req.params.id);
 
 
-    const result = await db.query(`
-        SELECT * FROM Subscribers
-        WHERE Id = ${id}
-    `);
+const subscriber = subscribers.find(
+    s => s.id === id
+);
 
-    res.json(result.recordset);
-} catch (err) {
-    res.status(500).json({ error: err.message });
+if (!subscriber) {
+    return res.status(404).json({
+        message: "Subscriber not found"
+    });
 }
+
+res.json(subscriber);
 
 
 });
@@ -48,31 +54,28 @@ const id = req.params.id;
 /* =========================
 ADD SUBSCRIBER
 ========================= */
-app.post("/api/subscribers", async (req, res) => {
-try {
+app.post("/subscribers", (req, res) => {
+
+
 const { email } = req.body;
 
-
-    if (!email) {
-        return res.status(400).json({
-            message: "Email is required"
-        });
-    }
-
-    await db.query(`
-        INSERT INTO Subscribers (Email)
-        VALUES ('${email}')
-    `);
-
-    res.status(201).json({
-        message: "Subscribed Successfully"
-    });
-
-} catch (err) {
-    res.status(500).json({
-        error: err.message
+if (!email) {
+    return res.status(400).json({
+        message: "Email is required"
     });
 }
+
+const newSubscriber = {
+    id: subscribers.length + 1,
+    email
+};
+
+subscribers.push(newSubscriber);
+
+res.status(201).json({
+    message: "Subscriber Added Successfully",
+    data: newSubscriber
+});
 
 
 });
@@ -80,27 +83,28 @@ const { email } = req.body;
 /* =========================
 UPDATE SUBSCRIBER
 ========================= */
-app.put("/api/subscribers/:id", async (req, res) => {
-try {
-const id = req.params.id;
+app.put("/subscribers/:id", (req, res) => {
+
+
+const id = parseInt(req.params.id);
 const { email } = req.body;
 
+const subscriber = subscribers.find(
+    s => s.id === id
+);
 
-    await db.query(`
-        UPDATE Subscribers
-        SET Email='${email}'
-        WHERE Id=${id}
-    `);
-
-    res.json({
-        message: "Subscriber Updated Successfully"
-    });
-
-} catch (err) {
-    res.status(500).json({
-        error: err.message
+if (!subscriber) {
+    return res.status(404).json({
+        message: "Subscriber not found"
     });
 }
+
+subscriber.email = email;
+
+res.json({
+    message: "Subscriber Updated Successfully",
+    data: subscriber
+});
 
 
 });
@@ -108,29 +112,33 @@ const { email } = req.body;
 /* =========================
 DELETE SUBSCRIBER
 ========================= */
-app.delete("/api/subscribers/:id", async (req, res) => {
-try {
-const id = req.params.id;
+app.delete("/subscribers/:id", (req, res) => {
 
 
-    await db.query(`
-        DELETE FROM Subscribers
-        WHERE Id=${id}
-    `);
+const id = parseInt(req.params.id);
 
-    res.json({
-        message: "Subscriber Deleted Successfully"
-    });
+const index = subscribers.findIndex(
+    s => s.id === id
+);
 
-} catch (err) {
-    res.status(500).json({
-        error: err.message
+if (index === -1) {
+    return res.status(404).json({
+        message: "Subscriber not found"
     });
 }
 
+subscribers.splice(index, 1);
+
+res.json({
+    message: "Subscriber Deleted Successfully"
 });
 
+
+});
+
+/* =========================
+START SERVER
+========================= */
 app.listen(PORT, () => {
 console.log(`🚀 Server running on port ${PORT}`);
 });
-
