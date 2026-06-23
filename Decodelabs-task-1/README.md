@@ -42,6 +42,6 @@ The project demonstrates front-end web development concepts including responsive
 
 ## 🌐 Live Demo
 
-🔗  https://it24104271.github.io/Decodelabs-Internship/
+🔗  https://github.com/IT24104271/Decodelabs-Internship/tree/main/Decodelabs-task-1
 
 ---
