@@ -56,14 +56,6 @@ The objective of this project is to connect a Node.js backend application with M
 GET /
 ```
 
-Response:
-
-```json
-{
-  "message": "Database API Running 🚀"
-}
-```
-
 ---
 
 ### Get All Interns
