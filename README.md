@@ -77,7 +77,7 @@ The objective of this task is to build a simple REST API using Node.js and Expre
 You can test the API using:
 
 - Postman
-- 
+
 ---
 
 # DecodeLabs Task 03 - Database Integration CRUD API
