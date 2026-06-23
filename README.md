@@ -77,6 +77,146 @@ The objective of this task is to build a simple REST API using Node.js and Expre
 You can test the API using:
 
 - Postman
+- 
+---
+
+# DecodeLabs Task 03 - Database Integration CRUD API
+
+## 📌 Project Overview
+
+The objective of this project is to connect a Node.js backend application with Microsoft SQL Server and perform complete CRUD (Create, Read, Update, Delete) operations using REST APIs.
+
+---
+
+## 🚀 Technologies Used
+
+- Node.js
+- Express.js
+- Microsoft SQL Server (MSSQL)
+- JavaScript
+- Postman
+
+---
+
+## ⚙️ Features
+
+✅ Database Connection using MSSQL
+
+✅ Get All Interns
+
+✅ Get Intern by ID
+
+✅ Add New Intern
+
+✅ Update Existing Intern
+
+✅ Delete Intern
+
+✅ JSON API Responses
+
+✅ Error Handling
+
+---
+
+## 🗄 Database Table
+
+### Interns Table
+
+| Column | Data Type |
+|----------|----------|
+| Id | INT (Primary Key) |
+| Name | VARCHAR(100) |
+| Role | VARCHAR(100) |
+
+---
+
+## 🔌 API Endpoints
+
+### Home Route
+
+```http
+GET /
+```
+
+Response:
+
+```json
+{
+  "message": "Database API Running 🚀"
+}
+```
+
+---
+
+### Get All Interns
+
+```http
+GET /interns
+```
+
+---
+
+### Get Intern By ID
+
+```http
+GET /interns/:id
+```
+
+Example:
+
+```http
+GET /interns/1
+```
+
+---
+
+### Add New Intern
+
+```http
+POST /interns
+```
+
+Request Body:
+
+```json
+{
+  "name": "John Doe",
+  "role": "Backend Developer Intern"
+}
+```
+
+---
+
+### Update Intern
+
+```http
+PUT /interns/:id
+```
+
+Request Body:
+
+```json
+{
+  "name": "John Doe",
+  "role": "Full Stack Developer Intern"
+}
+```
+
+---
+
+### Delete Intern
+
+```http
+DELETE /interns/:id
+```
+
+Example:
+
+```http
+DELETE /interns/1
+```
+
+---
 
 ## 👨‍💻 Author
 Nikshika Niththiyananthan
