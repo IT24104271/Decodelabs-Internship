@@ -1,23 +1,12 @@
-const sql = require("mssql");
+const sql = require("mssql/msnodesqlv8");
 
 const config = {
-    user: "Nikshika",
-    password: "nikshika1109",
-    server: "NIKSHIKA",
-    database: "InternDB",
-    options: {
-        encrypt: false,
-        trustServerCertificate: true
-    }
+    connectionString:
+        "Driver={ODBC Driver 17 for SQL Server};Server=NIKSHIKA;Database=RVCreationsDB;Trusted_Connection=Yes;"
 };
 
 sql.connect(config)
-    .then(() => {
-        console.log("✅ SQL Server Connected");
-    })
-    .catch((err) => {
-        console.error("❌ Database Connection Failed");
-        console.error(err);
-    });
+    .then(() => console.log("✅ SQL Server Connected"))
+    .catch(err => console.log(err));
 
 module.exports = sql;
