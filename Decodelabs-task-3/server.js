@@ -1,70 +1,45 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./db");
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
+app.use(cors());
 app.use(express.json());
 
-// HOME ROUTE
 app.get("/", (req, res) => {
-    res.send("Database API Running 🚀");
+    res.send("RV Creations Backend Running 🚀");
 });
 
-// GET ALL INTERNS
-app.get("/interns", async (req, res) => {
+// Get all subscribers
+app.get("/api/subscribers", async (req, res) => {
     try {
-        const result = await db.query("SELECT * FROM Interns");
-        res.status(200).json(result.recordset);
+        const result = await db.query("SELECT * FROM Subscribers");
+        res.json(result.recordset);
     } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
+        res.status(500).json({ error: err.message });
     }
 });
 
-// GET INTERN BY ID
-app.get("/interns/:id", async (req, res) => {
+// Add subscriber
+app.post("/api/subscribers", async (req, res) => {
     try {
-        const id = req.params.id;
+        const { email } = req.body;
 
-        const result = await db.query(
-            `SELECT * FROM Interns WHERE Id = ${id}`
-        );
-
-        if (result.recordset.length === 0) {
-            return res.status(404).json({
-                message: "Intern not found"
-            });
-        }
-
-        res.status(200).json(result.recordset[0]);
-
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
-    }
-});
-
-// ADD NEW INTERN
-app.post("/interns", async (req, res) => {
-    try {
-        const { name, role } = req.body;
-
-        if (!name || !role) {
+        if (!email) {
             return res.status(400).json({
-                message: "Name and Role are required"
+                message: "Email is required"
             });
         }
 
         await db.query(`
-            INSERT INTO Interns (Name, Role)
-            VALUES ('${name}', '${role}')
+            INSERT INTO Subscribers (Email)
+            VALUES ('${email}')
         `);
 
         res.status(201).json({
-            message: "Intern added successfully"
+            message: "Subscribed Successfully"
         });
 
     } catch (err) {
@@ -74,51 +49,6 @@ app.post("/interns", async (req, res) => {
     }
 });
 
-// UPDATE INTERN
-app.put("/interns/:id", async (req, res) => {
-    try {
-        const id = req.params.id;
-        const { name, role } = req.body;
-
-        await db.query(`
-            UPDATE Interns
-            SET Name='${name}', Role='${role}'
-            WHERE Id=${id}
-        `);
-
-        res.status(200).json({
-            message: "Intern updated successfully"
-        });
-
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
-    }
-});
-
-// DELETE INTERN
-app.delete("/interns/:id", async (req, res) => {
-    try {
-        const id = req.params.id;
-
-        await db.query(`
-            DELETE FROM Interns
-            WHERE Id=${id}
-        `);
-
-        res.status(200).json({
-            message: "Intern deleted successfully"
-        });
-
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
-    }
-});
-
-// START SERVER
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
 });
