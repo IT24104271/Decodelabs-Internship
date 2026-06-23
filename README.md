@@ -269,22 +269,6 @@ Response
 }
 ```
 
----
-
-## 👨‍💻 Author
-
-Nikshika
-
-Data Science Undergraduate
-
-SLIIT Northern Uni
-
----
-
-## 📄 License
-
-This project was developed for educational and internship purposes.
-
 ## 👨‍💻 Author
 Nikshika Niththiyananthan
 * Full-Stack Intern at @Decodelabs
