@@ -138,20 +138,12 @@ The objective of this project is to connect a Node.js backend application with M
 GET /
 ```
 
-Response:
-
-```json
-{
-  "message": "Database API Running 🚀"
-}
-```
-
 ---
 
 ### Get All Interns
 
 ```http
-GET /interns
+GET /Subscribers
 ```
 
 ---
@@ -159,13 +151,13 @@ GET /interns
 ### Get Intern By ID
 
 ```http
-GET /interns/:id
+GET /Subscribers/:id
 ```
 
 Example:
 
 ```http
-GET /interns/1
+GET /Subscribers/1
 ```
 
 ---
@@ -173,15 +165,14 @@ GET /interns/1
 ### Add New Intern
 
 ```http
-POST /interns
+POST /Subscribers
 ```
 
 Request Body:
 
 ```json
 {
-  "name": "John Doe",
-  "role": "Backend Developer Intern"
+  "email": "teat@gmail.com",
 }
 ```
 
@@ -190,16 +181,7 @@ Request Body:
 ### Update Intern
 
 ```http
-PUT /interns/:id
-```
-
-Request Body:
-
-```json
-{
-  "name": "John Doe",
-  "role": "Full Stack Developer Intern"
-}
+PUT /Subscribers/:id
 ```
 
 ---
@@ -207,16 +189,101 @@ Request Body:
 ### Delete Intern
 
 ```http
-DELETE /interns/:id
+DELETE /Subscribers/:id
 ```
 
 Example:
 
 ```http
-DELETE /interns/1
+DELETE /Subscribers/1
 ```
 
 ---
+
+# DecodeLabs Task 4 - 🎁 RV Creations - Gift Shop Website
+
+A responsive Gift Shop Website developed using HTML, CSS, JavaScript, Node.js, Express.js, and SQL Server. The application allows users to browse gift categories, view featured products, and subscribe using their email address.
+
+---
+
+## 🚀 Features
+
+- Responsive User Interface
+- Gift Categories Section
+- Featured Products Section
+- Dark Mode Toggle
+- Email Subscription System
+- REST API Integration
+- SQL Server Database Connectivity
+- Form Validation
+- Error Handling
+
+---
+
+## 🛠 Technologies Used
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+### Backend
+- Node.js
+- Express.js
+- CORS
+
+### Database
+- Microsoft SQL Server
+- mssql
+- msnodesqlv8
+
+---
+
+## 📡 API Endpoints
+
+### Get All Subscribers
+
+```http
+GET /api/subscribers
+```
+
+### Add Subscriber
+
+```http
+POST /api/subscribers
+```
+
+Request Body
+
+```json
+{
+  "email": "example@gmail.com"
+}
+```
+
+Response
+
+```json
+{
+  "message": "Subscribed Successfully"
+}
+```
+
+---
+
+## 👨‍💻 Author
+
+Nikshika
+
+Data Science Undergraduate
+
+SLIIT Northern Uni
+
+---
+
+## 📄 License
+
+This project was developed for educational and internship purposes.
 
 ## 👨‍💻 Author
 Nikshika Niththiyananthan
