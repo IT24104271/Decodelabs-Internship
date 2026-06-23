@@ -69,7 +69,7 @@ Response:
 ### Get All Interns
 
 ```http
-GET /interns
+GET /Subscribers
 ```
 
 ---
@@ -77,13 +77,13 @@ GET /interns
 ### Get Intern By ID
 
 ```http
-GET /interns/:id
+GET /Subscribers/:id
 ```
 
 Example:
 
 ```http
-GET /interns/1
+GET /Subscribers/1
 ```
 
 ---
@@ -91,15 +91,14 @@ GET /interns/1
 ### Add New Intern
 
 ```http
-POST /interns
+POST /Subscribers
 ```
 
 Request Body:
 
 ```json
 {
-  "name": "John Doe",
-  "role": "Backend Developer Intern"
+  "email": "teat@gmail.com",
 }
 ```
 
@@ -108,16 +107,7 @@ Request Body:
 ### Update Intern
 
 ```http
-PUT /interns/:id
-```
-
-Request Body:
-
-```json
-{
-  "name": "John Doe",
-  "role": "Full Stack Developer Intern"
-}
+PUT /Subscribers/:id
 ```
 
 ---
@@ -125,13 +115,13 @@ Request Body:
 ### Delete Intern
 
 ```http
-DELETE /interns/:id
+DELETE /Subscribers/:id
 ```
 
 Example:
 
 ```http
-DELETE /interns/1
+DELETE /Subscribers/1
 ```
 
 ---
@@ -142,24 +132,24 @@ All APIs were tested using Postman.
 
 #### Get All Interns
 
-![Get All Interns](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/interns.png)
+![Get All Interns](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/get.png)
 
 #### Get Intern By ID
 
-![Get Intern By ID](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/intern%20by%20id.png)
-
+![Get Intern By ID](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/get%20by%20id.png
+)
 #### Add New Intern
 
-![Add Intern](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/insert.png)
+![Add Intern](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/insert1.png)
 
 #### Update Intern
 
-![Update Intern](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/update.png)
+![Update Intern](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/update1.png)
 
 #### Database connection message
 
-![Database Connection](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/database.png)
-![Database Connection](https://github.com/IT24104271/Decodelabs-Internship/blob/cbc46ec00e942786d4e80dbf3faea69d808ded35/Decodelabs-task-3/images/connection.png)
+![Database Connection](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/backend%20connect.png)
+![Database Connection](https://github.com/IT24104271/Decodelabs-Internship/blob/032d6dc0bc8ebbeedae0be2ef6e028d8e013d9d8/Decodelabs-task-3/images/database1.png)
 
 ---
 
