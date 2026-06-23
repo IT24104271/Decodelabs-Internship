@@ -37,13 +37,6 @@ The project demonstrates front-end web development concepts including responsive
 * JavaScript (ES6)
 * Google Fonts (Poppins)
 * Font Awesome Icons
-
----
-
-## 🌐 Live Demo
-
-🔗  https://it24104271.github.io/Decodelabs-Internship/
-
 ---
 
 # DecodeLabs Task 02 - Backend API Development
